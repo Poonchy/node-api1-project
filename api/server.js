@@ -1,11 +1,13 @@
 // BUILD YOUR SERVER HERE
 const express = require('express')
+const cors = require('cors')
 const server = express()
 const Users = require('./users/model.js')
 
 //Declaring middleware (does not accept json body without this)
 //I assume this declares what language server is expecting in body.
 server.use(express.json())
+server.use(cors())
 
 //| POST   | /api/users     | Creates a user using the information sent inside the `request body`.                                   |
 server.post("/api/users", (req, res)=>{
